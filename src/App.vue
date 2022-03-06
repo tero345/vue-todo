@@ -15,6 +15,8 @@
             v-for="(todoItem, index) in todoItems" 
             :key="index"
             :todoItem="todoItem"
+            :index="index"
+            @remove="removeTodoItem"
           ></TodoListItem>
         </ul>
       </div>
@@ -63,6 +65,10 @@
       },
       fetchTodoItems(){
         this.todoItems = storage.fetch();
+      },
+      removeTodoItem(index:number){
+        this.todoItems.splice(index, 1);
+        storage.save(this.todoItems);
       }
     },
     created(){

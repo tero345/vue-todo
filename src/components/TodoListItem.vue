@@ -1,6 +1,7 @@
 <template>
     <li>
-        {{todoItem}}
+        <span>{{todoItem}}</span>
+        <button @click="removeTodo">삭제</button>
     </li>
 </template>
 
@@ -9,8 +10,15 @@
 
     export default Vue.extend({
         props: {
-            todoItem: String
+            todoItem: String,
+            index:Number
+            
         },
+        methods:{
+            removeTodo(){
+                this.$emit("remove", this.index);
+            }
+        }
     })
 </script>
 
