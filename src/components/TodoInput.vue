@@ -23,7 +23,6 @@
 
             },
             addTodo() {
-                console.log("add");
                 this.$emit("add")
             }   
         }
